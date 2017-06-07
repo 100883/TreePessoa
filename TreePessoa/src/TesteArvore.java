@@ -21,8 +21,38 @@ public class TesteArvore {
         arvore = arvore.inserir(arvore, new Pessoa("Luiz", 35, "888.888.888-88", "Rua 8"));
         arvore = arvore.inserir(arvore, new Pessoa("Carlos", 45, "999.999.999-99", "Rua 9"));
         arvore = arvore.inserir(arvore, new Pessoa("Marcos", 12, "101.010.101-01", "Rua 10"));
+        arvore = arvore.inserir(arvore, new Pessoa("Fernado", 34, "121.121.121-12", "Rua 11"));
+
         System.out.println("Em ordem");
         arvore.imprimeOrdem(arvore);
+
+        System.out.println("\nPessoa a ser excluida: " + new Pessoa("Fernado", 34, "121.121.121-12", "Rua 11"));
+        arvore.remover(arvore, new Pessoa("Fernado", 34, "121.121.121-12", "Ruua 11"));
+        System.out.println("\nArvore atualizada!");
+        arvore.imprimeOrdem(arvore);
+        
+        System.out.println("\nEm pré-ordem");
+        arvore.imprimirPreOrder(arvore);
+
+        System.out.println("\nEm pós-ordem");
+        arvore.imprimirPosOrder(arvore);
+
+        int somaIdades = arvore.somaIdades(arvore);
+        System.out.println("\nSomatoria das idades: " + somaIdades);
+        System.out.println("Menor idade: " + arvore.encontraMenorIdade(arvore));
+        System.out.println("Maior idade é: " + arvore.encontraMaiorIdade(arvore));
+        System.out.println("\nPessoa a ser buscada: " + new Pessoa("Carlos", 45, "999.999.999-99", "Rua 9"));
+        boolean resul = arvore.encontrarPessoa(arvore, new Pessoa("Carlos", 45, "999.999.999-99", "Rua 9"));
+
+        if (resul) {
+            System.out.println(new Pessoa("Carlos", 45, "999.999.999-99", "Rua 9") + " - Pessoa encontrada");
+        } else {
+            System.out.println(new Pessoa("Carlos", 45, "999.999.999-99", "Rua 9") + " - Pessoa não encontrada");
+        }
+
+        int qtdNos = arvore.totalNos(arvore);
+        System.out.println("\nA árvore contém " + qtdNos + " nós ");
+        System.out.println("\nA media das idade: " + arvore.mediaIdade(arvore));
 
     }
 }
